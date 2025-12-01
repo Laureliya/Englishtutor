@@ -968,4 +968,42 @@
         }
         
         // Назначение обработчика события
-        spinBtn.addEventListener('click', spinSlots
+        spinBtn.addEventListener('click', spinSlots);
+        
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Изменение стиля навигации при прокрутке
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+                header.style.background = 'linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.background = 'linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%)';
+            }
+        });
+        
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Сайт загружен! Кнопка слот-машины готова к работе.');
+        });
+    </script>
+</body>
+</html>
