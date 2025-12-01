@@ -14,19 +14,21 @@
         }
         
         :root {
-            --primary: #FF6B8B;
-            --secondary: #3ACFD5;
-            --accent: #FFD166;
-            --light: #F8F9FA;
-            --dark: #2A2D34;
-            --success: #06D6A0;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --primary: #FF3366; /* Ярче розовый */
+            --secondary: #00E5FF; /* Ярче голубой */
+            --accent: #FFCC00; /* Ярче желтый */
+            --light: #FFFFFF;
+            --dark: #1A1A2E;
+            --success: #00FF88; /* Ярче зеленый */
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --neon: 0 0 20px rgba(255, 51, 102, 0.5);
         }
         
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            background: linear-gradient(135deg, #FFE6F0 0%, #E6F7FF 100%);
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         /* Навигация */
@@ -34,7 +36,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
             box-shadow: var(--shadow);
             z-index: 1000;
             padding: 15px 0;
@@ -57,14 +59,15 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--primary);
+            color: white;
             display: flex;
             align-items: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
         
         .logo i {
             margin-right: 10px;
-            color: var(--secondary);
+            color: var(--accent);
         }
         
         .nav-links {
@@ -78,31 +81,18 @@
         
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: white;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: color 0.3s;
-            padding: 5px 0;
-            position: relative;
+            transition: all 0.3s;
+            padding: 8px 15px;
+            border-radius: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
         
         .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--secondary);
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
         }
         
         /* Основной контент */
@@ -116,74 +106,121 @@
         
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 50px;
             color: var(--dark);
             position: relative;
+            font-weight: 800;
         }
         
         .section-title::after {
             content: '';
             position: absolute;
-            width: 100px;
-            height: 5px;
-            background: var(--primary);
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 5px;
+            box-shadow: var(--shadow);
         }
         
         /* Герой секция */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #FF6699 30%, var(--secondary) 100%);
             color: white;
             padding: 150px 0 100px;
-            border-radius: 0 0 40px 40px;
+            border-radius: 0 0 50px 50px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -50px;
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
         }
         
         .hero h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 30px;
             color: var(--accent);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 40px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
         
         .photo-placeholder {
-            width: 300px;
-            height: 300px;
+            width: 320px;
+            height: 320px;
             margin: 40px auto;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent) 0%, #FF9A8B 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, #FF9966 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 8px solid white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border: 10px solid white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .photo-placeholder::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+            animation: shine 3s infinite linear;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
         
         .photo-placeholder i {
-            font-size: 5rem;
+            font-size: 6rem;
             color: white;
+            z-index: 1;
         }
         
         /* Обо мне */
@@ -201,96 +238,149 @@
         }
         
         .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.2rem;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            line-height: 1.8;
         }
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
             margin-top: 40px;
         }
         
         .feature {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
+            padding: 40px 30px;
+            border-radius: 25px;
             box-shadow: var(--shadow);
             text-align: center;
-            transition: transform 0.3s;
+            transition: all 0.4s;
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) border-box;
         }
         
         .feature:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
         .feature i {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .feature h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             color: var(--dark);
         }
         
-        /* Слот-машина */
+        /* Слот-машина - ЯРЧЕ И НА БЕЛОМ ФОНЕ */
         .slot-section {
-            background: linear-gradient(135deg, #e0f7fa 0%, #fce4ec 100%);
-            border-radius: 40px;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            border: 5px solid var(--accent);
+            position: relative;
+        }
+        
+        .slot-section::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            z-index: -1;
+            border-radius: 60px;
+            opacity: 0.7;
+            filter: blur(10px);
         }
         
         .slot-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: var(--shadow);
+            padding: 60px 40px;
             text-align: center;
+        }
+        
+        .slot-container p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            color: var(--dark);
         }
         
         .slot-machine {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
+            gap: 30px;
+            margin: 50px 0;
             flex-wrap: wrap;
         }
         
         .slot-reel {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 20px;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #FF3366 0%, #FF6699 50%, #FF9966 100%);
+            border-radius: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+            font-size: 5rem;
+            box-shadow: 
+                inset 0 0 20px rgba(0, 0, 0, 0.3),
+                0 10px 30px rgba(255, 51, 102, 0.4);
             overflow: hidden;
+            position: relative;
+            border: 5px solid white;
+        }
+        
+        .slot-reel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 30%, rgba(255, 255, 255, 0.5) 50%, transparent 70%);
+            animation: shine 3s infinite linear;
         }
         
         .spin-btn {
-            background: linear-gradient(135deg, var(--accent) 0%, #FF9A8B 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, #FF9900 100%);
             color: white;
             border: none;
-            padding: 18px 50px;
-            font-size: 1.5rem;
-            border-radius: 50px;
+            padding: 22px 70px;
+            font-size: 1.8rem;
+            border-radius: 60px;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(255, 209, 102, 0.4);
-            margin-bottom: 30px;
+            box-shadow: 
+                0 10px 30px rgba(255, 204, 0, 0.5),
+                var(--neon);
+            margin: 30px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .spin-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 209, 102, 0.6);
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 
+                0 15px 40px rgba(255, 204, 0, 0.7),
+                0 0 30px rgba(255, 204, 0, 0.8);
+        }
+        
+        .spin-btn:active {
+            transform: scale(0.95) translateY(0);
         }
         
         .spin-btn:disabled {
@@ -301,32 +391,41 @@
         }
         
         .prize-display {
-            min-height: 100px;
-            background: #f8f9fa;
-            border-radius: 20px;
-            padding: 20px;
-            margin-top: 30px;
+            min-height: 150px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 25px;
+            padding: 30px;
+            margin-top: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 3px dashed var(--secondary);
+            border: 4px dashed var(--secondary);
+            box-shadow: inset 0 0 20px rgba(0, 229, 255, 0.2);
         }
         
         .prize-title {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: 800;
         }
         
         .prize-description {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--dark);
+            max-width: 800px;
         }
         
         .win-emoji {
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite alternate;
+        }
+        
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-20px); }
         }
         
         /* Контакты */
@@ -343,86 +442,175 @@
         }
         
         .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 30px;
             color: var(--primary);
+            font-weight: 800;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
         
         .contact-item i {
-            width: 50px;
-            height: 50px;
-            background: var(--secondary);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
-            margin-right: 15px;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
         }
         
         /* Футер */
         footer {
-            background: var(--dark);
+            background: linear-gradient(135deg, var(--dark) 0%, #16213E 100%);
             color: white;
-            padding: 50px 0 20px;
+            padding: 70px 0 30px;
             text-align: center;
+            border-radius: 50px 50px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
         }
         
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
         
         .footer-section {
             flex: 1;
             min-width: 300px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         
         .footer-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
             color: var(--accent);
+            font-weight: 800;
+        }
+        
+        .footer-section p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
         }
         
         .copyright {
-            padding-top: 20px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #aaa;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
         }
         
         /* Адаптивность */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .nav-links {
                 display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .slot-reel {
+                width: 120px;
+                height: 120px;
+                font-size: 4rem;
+            }
+            
+            .spin-btn {
+                padding: 18px 50px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0 80px;
             }
             
             .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-            
             .section-title {
                 font-size: 2rem;
+            }
+            
+            .photo-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .slot-reel {
+                width: 100px;
+                height: 100px;
+                font-size: 3.5rem;
+            }
+            
+            .prize-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slot-machine {
+                gap: 15px;
             }
             
             .slot-reel {
                 width: 80px;
                 height: 80px;
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
         }
         
@@ -439,12 +627,18 @@
         
         .confetti {
             position: fixed;
-            width: 15px;
-            height: 15px;
+            width: 20px;
+            height: 20px;
             background: var(--primary);
             top: -20px;
             opacity: 0;
             z-index: 9999;
+            border-radius: 0;
+        }
+        
+        /* Плавная прокрутка */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -455,12 +649,12 @@
             <nav>
                 <div class="logo">
                     <i class="fas fa-graduation-cap"></i>
-                    <span>EnglishWithAnzelika</span>
+                    <span>EnglishWithAnzhelika</span>
                 </div>
                 <ul class="nav-links">
                     <li><a href="#home">Главная</a></li>
                     <li><a href="#about">Обо мне</a></li>
-                    <li><a href="#slot">Бонус</a></li>
+                    <li><a href="#slot">Колесо удачи</a></li>
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
@@ -473,7 +667,7 @@
             <div class="container hero-content">
                 <h1>Бирюкова Анжелика</h1>
                 <h2>Репетитор по английскому языку</h2>
-                <p>Для младших школьников и подростков. Превращаю изучение английского в увлекательное путешествие, где каждый урок - это новый шаг к свободному общению!</p>
+                <p>Для младших школьников и подростков. Превращаю изучение английского в яркое приключение, где каждый урок — это новые открытия и радость от успехов!</p>
                 
                 <div class="photo-placeholder">
                     <i class="fas fa-user-circle"></i>
@@ -489,8 +683,8 @@
                 <h2 class="section-title">Обо мне</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Привет! Меня зовут Анжелика, и я уже более 15 лет помогаю детям и подросткам осваивать английский язык. Моя цель - не просто научить грамматике и словам, а привить любовь к языку и культуре англоязычных стран.</p>
-                        <p>Я специализируюсь на работе с младшими школьниками и подростками, используя игровые методики, интерактивные материалы и индивидуальный подход к каждому ученику.</p>
+                        <p>Привет! Меня зовут Анжелика, и я уже более 15 лет помогаю детям и подросткам осваивать английский язык с радостью и энтузиазмом. Моя цель — не просто научить грамматике и словам, а зажечь искру интереса к языку и культуре англоязычных стран.</p>
+                        <p>Я специализируюсь на работе с младшими школьниками и подростками, используя яркие игровые методики, интерактивные материалы и индивидуальный подход к каждому ученику. Каждый мой урок — это путешествие в мир английского языка!</p>
                         <p>Считаю, что обучение должно быть интересным и вдохновляющим, поэтому на моих уроках всегда царит дружеская атмосфера, а материал подается в доступной и увлекательной форме.</p>
                     </div>
                     
@@ -498,17 +692,17 @@
                         <div class="feature">
                             <i class="fas fa-child"></i>
                             <h3>Для младших школьников</h3>
-                            <p>Игровые занятия, песни, мультфильмы и творческие задания для легкого усвоения материала.</p>
+                            <p>Яркие игровые занятия, песни, мультфильмы и творческие задания для легкого и веселого усвоения материала.</p>
                         </div>
                         <div class="feature">
                             <i class="fas fa-users"></i>
                             <h3>Для подростков</h3>
-                            <p>Акцент на современный язык, разговорную практику и подготовку к экзаменам.</p>
+                            <p>Акцент на современный язык, разговорную практику и подготовку к экзаменам с использованием актуальных тем.</p>
                         </div>
                         <div class="feature">
                             <i class="fas fa-gamepad"></i>
                             <h3>Интерактивный подход</h3>
-                            <p>Использование игр, квизов и цифровых инструментов для вовлечения в процесс обучения.</p>
+                            <p>Использование игр, квизов, цифровых инструментов и креативных заданий для максимального вовлечения в процесс обучения.</p>
                         </div>
                     </div>
                 </div>
@@ -518,9 +712,9 @@
         <!-- Слот-машина -->
         <section id="slot" class="slot-section">
             <div class="container">
-                <h2 class="section-title">Колесо удачи!</h2>
+                <h2 class="section-title" style="color: var(--primary);">Колесо удачи!</h2>
                 <div class="slot-container">
-                    <p style="font-size: 1.3rem; margin-bottom: 20px;">Нажмите на кнопку, чтобы получить свой подарок! Удача всегда на вашей стороне!</p>
+                    <p>Нажмите на кнопку, чтобы получить свой подарок! Удача всегда на вашей стороне — каждый выигрыш гарантирован!</p>
                     
                     <div class="slot-machine">
                         <div class="slot-reel" id="reel1">🎯</div>
@@ -531,10 +725,10 @@
                     <button class="spin-btn" id="spinBtn">Получить подарок!</button>
                     
                     <div class="prize-display" id="prizeDisplay">
-                        <p>Нажмите кнопку, чтобы узнать ваш приз!</p>
+                        <p style="font-size: 1.3rem; color: #666;">Нажмите кнопку, чтобы узнать ваш приз!</p>
                     </div>
                     
-                    <p style="margin-top: 20px; font-style: italic; color: #666;">Подарок можно получить только один раз</p>
+                    <p style="margin-top: 30px; font-style: italic; color: var(--primary); font-weight: bold; font-size: 1.2rem;">🎁 Подарок можно получить только один раз 🎁</p>
                 </div>
             </div>
         </section>
@@ -549,28 +743,28 @@
                         <div class="contact-item">
                             <i class="fas fa-user"></i>
                             <div>
-                                <strong>Бирюкова Анжелика</strong>
+                                <strong style="font-size: 1.3rem;">Бирюкова Анжелика</strong>
                                 <p>Репетитор по английскому языку</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-users"></i>
                             <div>
-                                <strong>Специализация</strong>
+                                <strong style="font-size: 1.3rem;">Специализация</strong>
                                 <p>Младшие школьники и подростки</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <div>
-                                <strong>Email</strong>
+                                <strong style="font-size: 1.3rem;">Email</strong>
                                 <p>english.with.angela@example.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
                             <div>
-                                <strong>Телефон</strong>
+                                <strong style="font-size: 1.3rem;">Телефон</strong>
                                 <p>+7 (XXX) XXX-XX-XX</p>
                             </div>
                         </div>
@@ -581,22 +775,22 @@
                         <div class="contact-item">
                             <i class="fas fa-laptop-house"></i>
                             <div>
-                                <strong>Онлайн</strong>
-                                <p>Удобные занятия через Zoom/Skype с интерактивной доской</p>
+                                <strong style="font-size: 1.3rem;">Онлайн</strong>
+                                <p>Удобные занятия через Zoom/Skype с интерактивной доской и яркими материалами</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-home"></i>
                             <div>
-                                <strong>Офлайн</strong>
-                                <p>Занятия у ученика или у репетитора (Москва)</p>
+                                <strong style="font-size: 1.3rem;">Офлайн</strong>
+                                <p>Занятия у ученика или у репетитора (Москва) в комфортной атмосфере</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-clock"></i>
                             <div>
-                                <strong>График</strong>
-                                <p>Гибкое расписание, включая выходные дни</p>
+                                <strong style="font-size: 1.3rem;">График</strong>
+                                <p>Гибкое расписание, включая выходные дни и вечернее время</p>
                             </div>
                         </div>
                     </div>
@@ -611,25 +805,25 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>EnglishWithAngela</h3>
-                    <p>Яркое и эффективное обучение английскому языку для детей и подростков.</p>
+                    <p>Яркое и эффективное обучение английскому языку для детей и подростков с индивидуальным подходом и творческими методиками.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Быстрые ссылки</h3>
-                    <p><a href="#home" style="color: white;">Главная</a></p>
-                    <p><a href="#about" style="color: white;">Обо мне</a></p>
-                    <p><a href="#slot" style="color: white;">Бонус</a></p>
-                    <p><a href="#contact" style="color: white;">Контакты</a></p>
+                    <p><a href="#home">Главная</a></p>
+                    <p><a href="#about">Обо мне</a></p>
+                    <p><a href="#slot">Колесо удачи</a></p>
+                    <p><a href="#contact">Контакты</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Социальные сети</h3>
-                    <p><i class="fab fa-instagram" style="margin-right: 10px;"></i> Instagram</p>
-                    <p><i class="fab fa-vk" style="margin-right: 10px;"></i> ВКонтакте</p>
-                    <p><i class="fab fa-telegram" style="margin-right: 10px;"></i> Telegram</p>
+                    <p><a href="#"><i class="fab fa-instagram" style="margin-right: 10px;"></i> Instagram</a></p>
+                    <p><a href="#"><i class="fab fa-vk" style="margin-right: 10px;"></i> ВКонтакте</a></p>
+                    <p><a href="#"><i class="fab fa-telegram" style="margin-right: 10px;"></i> Telegram</a></p>
                 </div>
             </div>
             <div class="copyright">
                 <p>&copy; 2023 Бирюкова Анжелика. Репетитор по английскому языку. Все права защищены.</p>
-                <p>Сайт разработан для размещения на GitHub</p>
+                <p style="margin-top: 10px;">Сайт разработан для размещения на GitHub</p>
             </div>
         </div>
     </footer>
@@ -676,16 +870,24 @@
         
         // Функция создания конфетти
         function createConfetti() {
-            const colors = ['#FF6B8B', '#3ACFD5', '#FFD166', '#06D6A0', '#9D4EDD'];
+            const colors = ['#FF3366', '#00E5FF', '#FFCC00', '#00FF88', '#9D4EDD', '#FF6699'];
             
-            for (let i = 0; i < 150; i++) {
+            for (let i = 0; i < 200; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.left = Math.random() * 100 + 'vw';
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.width = Math.random() * 15 + 5 + 'px';
-                confetti.style.height = Math.random() * 15 + 5 + 'px';
+                confetti.style.width = Math.random() * 20 + 10 + 'px';
+                confetti.style.height = Math.random() * 20 + 10 + 'px';
                 confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.opacity = '0.9';
+                
+                // Случайная форма
+                if (Math.random() > 0.7) {
+                    confetti.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+                } else if (Math.random() > 0.5) {
+                    confetti.style.borderRadius = '30% 70% 70% 30% / 30% 30% 70% 70%';
+                }
                 
                 document.body.appendChild(confetti);
                 
@@ -716,10 +918,10 @@
             const prize = prizes[prizeIndex];
             
             // Анимация вращения
-            const emojis = ["🎯", "✨", "🎁", "🌟", "🎉", "🏆", "📚", "🎴", "💫", "⭐"];
+            const emojis = ["🎯", "✨", "🎁", "🌟", "🎉", "🏆", "📚", "🎴", "💫", "⭐", "🔥", "💎", "🚀", "🌈", "🦄"];
             
             let spins = 0;
-            const maxSpins = 30;
+            const maxSpins = 40;
             const spinInterval = setInterval(() => {
                 // Случайные эмоджи для вращения
                 reel1.textContent = emojis[Math.floor(Math.random() * emojis.length)];
@@ -728,73 +930,43 @@
                 
                 spins++;
                 
-                // Завершение вращения
-                if (spins > maxSpins) {
+                // Замедление вращения в конце
+                if (spins > maxSpins - 10) {
                     clearInterval(spinInterval);
-                    
-                    // Устанавливаем выигрышные эмоджи
-                    reel1.textContent = prize.emoji;
-                    reel2.textContent = prize.emoji;
-                    reel3.textContent = prize.emoji;
-                    
-                    // Показываем приз
                     setTimeout(() => {
-                        prizeDisplay.innerHTML = `
-                            <div class="win-emoji">${prize.emoji}</div>
-                            <div class="prize-title">${prize.title}</div>
-                            <div class="prize-description">${prize.description}</div>
-                        `;
+                        // Устанавливаем выигрышные эмоджи
+                        reel1.textContent = prize.emoji;
+                        reel2.textContent = prize.emoji;
+                        reel3.textContent = prize.emoji;
                         
-                        // Создаем конфетти
-                        createConfetti();
-                        
-                        // Обновляем состояние
-                        isSpinning = false;
-                        prizeUsed = true;
-                        spinBtn.textContent = "Подарок получен!";
-                        spinBtn.disabled = true;
-                        
-                        // Показываем сообщение об использовании
+                        // Небольшая задержка перед показом приза
                         setTimeout(() => {
-                            alert("Поздравляем с выигрышем! Ваш подарок: " + prize.title + "\n\nСвяжитесь со мной, чтобы воспользоваться призом!");
+                            prizeDisplay.innerHTML = `
+                                <div class="win-emoji">${prize.emoji}</div>
+                                <div class="prize-title">${prize.title}</div>
+                                <div class="prize-description">${prize.description}</div>
+                            `;
+                            
+                            // Создаем конфетти
+                            createConfetti();
+                            
+                            // Обновляем состояние
+                            isSpinning = false;
+                            prizeUsed = true;
+                            spinBtn.textContent = "Подарок получен!";
+                            spinBtn.disabled = true;
+                            spinBtn.style.background = 'linear-gradient(135deg, #00FF88 0%, #00CC66 100%)';
+                            
+                            // Показываем сообщение об использовании
+                            setTimeout(() => {
+                                alert(`🎉 Поздравляем с выигрышем! 🎉\n\n${prize.title}\n\n${prize.description}\n\nСвяжитесь со мной, чтобы воспользоваться призом!`);
+                            }, 800);
                         }, 500);
-                    }, 300);
+                    }, 100);
                 }
-            }, 80);
+            }, 70);
         }
         
         // Назначение обработчика события
         spinBtn.addEventListener('click', spinSlots);
         
-        // Плавная прокрутка для навигации
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Изменение стиля навигации при прокрутке
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.padding = '10px 0';
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.padding = '15px 0';
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-    </script>
-</body>
-</html>
